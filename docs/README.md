@@ -7,7 +7,7 @@ This project is a Music Recommendation System designed to suggest songs, artists
 
 ## Features
 
-- **Data Collection:** Scripts to collect music data from various APIs like Spotify and Last.fm.
+- **Data Collection:** Scripts to collect music data from various APIs like Spotify.
 - **Data Preprocessing:** Cleaning and preprocessing data for model training.
 - **Model Training:** Implementations of collaborative filtering, content-based filtering, and hybrid recommendation models.
 - **Recommendation Generation:** Scripts to generate music recommendations for users.
@@ -18,7 +18,11 @@ This project is a Music Recommendation System designed to suggest songs, artists
 
 ```
 music_recommendation_system/
-│
+├── .gitignore
+├── .env
+├── setup.py
+├── deploy.sh
+├── logging_config.py
 ├── main.py
 ├── config.py
 ├── data/
@@ -61,58 +65,43 @@ music_recommendation_system/
     └── user_manual.md
 ```
 
-## Branches
-
-### Main Branches
-
-- **main:** The primary branch containing stable and production-ready code.
-- **develop:** A branch for integrating and testing new features before merging them into the `main` branch.
-
-### Feature Branches
-
-- **feature/data-collection:** For implementing data collection scripts and functionalities.
-- **feature/data-preprocessing:** For developing data preprocessing scripts.
-- **feature/model-training:** For building and training the recommendation models.
-- **feature/recommendation-generation:** For creating recommendation generation functionalities.
-- **feature/web-app:** For developing the web application.
-- **feature/evaluation:** For implementing evaluation scripts and utilities.
-- **feature/utilities:** For creating utility functions and modules.
-
-### Bugfix Branches
-
-- **bugfix/data-collection:** For fixing issues related to data collection.
-- **bugfix/data-preprocessing:** For addressing bugs in data preprocessing scripts.
-- **bugfix/model-training:** For resolving issues in model training processes.
-- **bugfix/recommendation-generation:** For fixing bugs in recommendation generation.
-- **bugfix/web-app:** For solving problems in the web application.
-
-### Hotfix Branches
-
-- **hotfix/critical-bug:** For quick fixes that need to be addressed immediately in the `main` branch.
-
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/music_recommendation_system.git
-   cd music_recommendation_system
-   ```
+
+    ```bash
+    git clone https://github.com/yourusername/music_recommendation_system.git
+    cd music_recommendation_system
+    ```
 
 2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts ctivate`
-   ```
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
 3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Set up environment variables:
+
+    - Create a `.env` file in the root directory of the project.
+    - Add your environment variables (e.g., `SPOTIFY_API_TOKEN`, `DATABASE_URL`).
+
+5. Run the application:
+
+    ```bash
+    python app/server.py
+    ```
 
 ## Usage
 
 1. **Data Collection:**
-   - Configure your API keys in `config.py`.
+   - Configure your API keys in `.env`.
    - Run the data collection script:
      ```bash
      python data/data_collection.py
@@ -153,20 +142,23 @@ music_recommendation_system/
 ## Contributing
 
 1. Create a new branch for your feature or bugfix:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
 
 2. Commit your changes:
-   ```bash
-   git add .
-   git commit -m "Add your message here"
-   ```
+
+    ```bash
+    git add .
+    git commit -m "Add your message here"
+    ```
 
 3. Push to the branch:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
+
+    ```bash
+    git push origin feature/your-feature-name
+    ```
 
 4. Create a pull request on GitHub.
 
