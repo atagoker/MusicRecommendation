@@ -3,20 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Recommendation System</title>
+    <title>Sweetify - Music Recommendations</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <h1>Welcome to the Music Recommendation System</h1>
-    <form id="recommendation-form">
-        <label for="user_id">Enter User ID:</label>
-        <input type="number" id="user_id" name="user_id">
-        <button type="submit">Get Recommendations</button>
-    </form>
-    <div id="recommendations">
-        <h2>Recommendations:</h2>
-        <ul id="recommendation-list"></ul>
-    </div>
+    <main class="app-shell">
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Spotify-inspired recommender</p>
+                <h1>Find a new favorite from your last 3 songs.</h1>
+                <p class="intro">
+                    Type the last three songs you listened to, or the first three you can remember. Sweetify scans a local Spotify-style catalog and gives you one focused recommendation.
+                </p>
+                <form id="recommendation-form" class="recommendation-form">
+                    <div class="song-fields">
+                        <label for="song-1">Song 1</label>
+                        <input id="song-1" name="song-1" type="text" placeholder="Example: Tame Impala - Borderline" autocomplete="off" required>
+
+                        <label for="song-2">Song 2</label>
+                        <input id="song-2" name="song-2" type="text" placeholder="Example: Frank Ocean - Nights" autocomplete="off" required>
+
+                        <label for="song-3">Song 3</label>
+                        <input id="song-3" name="song-3" type="text" placeholder="Example: Bicep - Glue" autocomplete="off" required>
+                    </div>
+                    <button type="submit" id="recommend-button">
+                        <span class="button-icon" aria-hidden="true">♪</span>
+                        Recommend a song
+                    </button>
+                </form>
+            </div>
+            <div class="player-preview" aria-label="Music player preview">
+                <div class="album-art">
+                    <span>3</span>
+                </div>
+                <div class="preview-copy">
+                    <strong>Enter 3 songs</strong>
+                    <span>Open 1 strong match on Spotify</span>
+                </div>
+                <div class="wave-bars" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="recommendations" aria-live="polite">
+            <div class="section-heading">
+                <p class="eyebrow">Personal match</p>
+                <h2>Recommendation</h2>
+            </div>
+            <div id="recommendation-list" class="recommendation-list single">
+                <article class="empty-state">
+                    <strong>Ready when you are.</strong>
+                    <span>Add three songs and Sweetify will pick the closest match from the catalog.</span>
+                </article>
+            </div>
+        </section>
+    </main>
     <script src="/static/js/main.js"></script>
 </body>
 </html>

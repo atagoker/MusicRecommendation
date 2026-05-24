@@ -13,6 +13,7 @@ class CollaborativeFiltering:
         self.model.fit(user_item_matrix)
     
     def recommend(self, user_id, user_item_matrix, n_recommendations=5):
-        distances, indices = self.model.kneighbors(user_item_matrix[user_id], n_neighbors=n_recommendations)
+        user_vector = np.asarray(user_item_matrix[user_id]).reshape(1, -1)
+        distances, indices = self.model.kneighbors(user_vector, n_neighbors=n_recommendations)
         return indices.flatten()
 
