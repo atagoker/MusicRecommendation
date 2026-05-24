@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <h1>Recommendations</h1>
-    <ul id="recommendation-list">
-        <!-- Recommendations will be inserted here -->
-    </ul>
-    <a href="/">Back to Home</a>
+    <main class="app-shell compact">
+        <section class="recommendations">
+            <div class="section-heading">
+                <p class="eyebrow">Spotify-inspired recommender</p>
+                <h1>Recommendations</h1>
+            </div>
+            <div id="recommendation-list" class="recommendation-list single">
+                <article class="empty-state">
+                    <strong>Start from the home page.</strong>
+                    <span>Enter three songs there to generate a focused recommendation.</span>
+                </article>
+            </div>
+            <a class="back-link" href="/">Back home</a>
+        </section>
+    </main>
     <script src="/static/js/main.js"></script>
 </body>
 </html>

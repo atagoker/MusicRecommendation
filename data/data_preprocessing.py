@@ -1,5 +1,6 @@
 import os
 import json
+import ast
 
 current_dir = os.path.dirname(__file__)
 raw_data_dir = os.path.join(current_dir, 'datasets', 'raw')
@@ -13,7 +14,11 @@ def process_data(input_filename, output_filename):
     output_path = os.path.join(processed_data_dir, output_filename)
     
     with open(input_path, 'r') as infile:
-        data = json.load(infile)
+        raw_content = infile.read()
+        try:
+            data = json.loads(raw_content)
+        except json.JSONDecodeError:
+            data = ast.literal_eval(raw_content)
     
     processed_data = [track['name'] for track in data['albums']['items']]
     

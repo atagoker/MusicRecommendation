@@ -12,8 +12,10 @@ def load_model(filename):
 
 def generate_recommendations(model, user_id, n_recommendations=5):
     """Generates recommendations for a given user."""
-    distances, indices = model.kneighbors(np.random.rand(1, model._fit_X.shape[1]), n_neighbors=n_recommendations)
-    return indices.flatten()
+    fitted_data = getattr(model, '_fit_X', None)
+    n_features = fitted_data.shape[1] if fitted_data is not None else 1
+    distances, indices = model.kneighbors(np.random.rand(1, n_features), n_neighbors=n_recommendations)
+    return np.asarray(indices).flatten()
 
 def main():
     """Main function to load the model and generate recommendations."""
